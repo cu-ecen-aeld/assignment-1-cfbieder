@@ -1,6 +1,7 @@
 #include "unity.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "../../examples/autotest-validate/autotest-validate.h"
 #include "../../assignment-autotest/test/assignment1/username-from-conf-file.h"
 
@@ -15,8 +16,15 @@
 void test_validate_my_username()
 {
     /**
-     * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt 
+     * TODO: Replace the line below with your code here as described above to verify your /conf/username.txt
      * config file and my_username() functions are setup properly
      */
-    TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+    const char *name1 = my_username();
+    const char *name2 = malloc_username_from_conf_file() ;
+    //printf("%s",name2);
+    printf("Name 1 %s\n",name1 );
+    printf("Name 2 %s\n",name2 );
+    bool check = !strcmp(name1,name2) ;
+    printf("Check %d\n",check );
+    TEST_ASSERT_TRUE_MESSAGE(check,"AESD students, please fix me!");
 }
